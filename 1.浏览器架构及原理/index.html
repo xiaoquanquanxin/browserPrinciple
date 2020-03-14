@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浏览器架构及原理</title>
+</head>
+<body>
+<p>最终的效果是，哪里渲染没出来，从原理分析很快就能知道</p>
+<br>
+<p>js最早是动态脚本，没有翻译引擎</p>
+<p>js翻译成机器码会有几十行，占内存</p>
+<p>协程在线程里更小的一步</p>
+<strong>for...in 和 for...of的区别</strong>
+<p>for...in会遍历原型链，for...of遍历一个可遍历的东西，generator生成一个遍历器Iterator</p>
+<p>进程通信方便，公用资源、全局变量。线程需要通信IPC。</p>
+<p>单进程浏览器不安全因为收到攻击，可以访问唯一的堆。</p>
+<br>
+<p>前端网络</p>
+<p>ip，有寻址功能</p>
+<p>三次握手和四次挥手，为什么3次和4次</p>
+<p>http请求过程</p>
+<p>cdn，内容分发网络，有一个机制，让你请求一个静态资源从最近的节点请求。第一次请求会回源，但第二次会在最近的节点缓存。cdn可以走动态加速，减少路由跳转。每次解析域名加到别名上，别名根据source ip打到最近的节点，如果没有，就回源到跟节点。</p>
+<br>
+
+</body>
+</html>
