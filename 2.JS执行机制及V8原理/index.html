@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h2>变量提升</h2>
+<p>为什么有变量提升？因为js没有块级作用域</p>
+<p>执行上下文都在栈里，因为要有一个函数调用栈</p>
+<p>引用数据类型，栈里面存的是堆里面的地址</p>
+<p>基本数据类型，栈里面存的是值</p>
+<p>全局编译只有一次，不会读函数内部。函数调用时会开一个额外的函数执行上下文</p>
+<h3>词法环境</h3>
+<p>词法环境是用于定义的相关联的规范类型标识符。 词法环境是与解析相关的， 是静态不变的，相互关系是固化的。</p>
+<p>函数调用维护两个栈，一个是函数栈，一个是词法作用域栈。</p>
+<p>寻找标识符先找词法环境，再找变量环境。</p>
+<p>词法环境也维护了一个栈，维护的是块级作用域。里面是let const 这些变量。而变量环境维护的是函数作用域，里面是var</p>
+<h4 class="red">作用域链</h4>
+<p>es5变量对象构成scope chain。es6outer构成scope chain，outer就是标识符下一步应该找的那个谁。</p>
+<h3 class="red">this</h3>
+<p>构造函数中，this的过程：</p>
+<p>先有空对象{}，再Fn.call({}),就把this注入成{}了。最后把{}的原型链绑定。在真正new的时候，内部执行这些。</p>
+<h3 class="red">箭头函数</h3>
+<p>箭头函数没有原型，bind生成的新函数也没有原型。</p>
+<h3 class="red">ast</h3>
+<p>代码转为ast，再转为字节码，对于高热点代码会转为机器码。字节码耗内存，所以chrome上升内存快。</p>
+<h4 class="red">宏任务，微任务</h4>
+<p>宏任务就是浏览器层面的任务，渲染，解析dom，事件，执行脚本</p>
+<p>微任务是宏任务维护的队列里的任务，是一个需要异步执行的函数。执行时机是主函数执行完以后、当前宏任务执行完以前。</p>
+<p>微任务的创建时机：创建执行上下文的时候，创建一个微任务列表。</p>
+<p>解决js卡顿可以回调，或者用微任务。</p>
+<p>微任务是引擎维护的队列，宏任务是浏览器维护的队列。</p>
+<script>
+    // //定义构造函数
+    //
+    // function Father() {
+    //     this.f = 1;
+    // };
+    //
+    // function newnew(father) {
+    //     var newobj = {};
+    //     newobj.__proto__ = father.prototype;
+    //     newobj.__proto__.constructor = father;
+    //     var aaa = father.call(newobj);
+    //     console.log(aaa);
+    //     return typeof aaa == 'object' ? aaa : newobj;
+    // }
+    //
+    // var child = newnew(Father);
+    // console.log(child)
+</script>
+
+</body>
+</html>
