@@ -82,10 +82,28 @@
 <p>组织xss攻击</p>
 <ol>
     <li>过滤脚本</li>
-    <li class="red">csp</li>
-    <li>httpOnly</li>
+    <li class="red">csp，服务端告诉浏览器允许加载那些域的js</li>
+    <li>httpOnly，js不能读cookie</li>
 </ol>
-CSRF
+<p class="red">跨站请求伪造（英语：Cross-site request forgery）</p>
+<p>利用服务器漏洞和用户的登录状态攻击</p>
+<p>防止csrf攻击</p>
+<p>利用cookie的sameSite属性</p>
+<p>验证请求来源</p>
+<p>服务端token</p>
+<br>
+<h4>https</h4>
+<p>http是明文传输的过程，</p>
+<p>https是防止中间人窃取。在http和tcp之间做了加密和解密——ssl和tls</p>
+<p>三种加密方式：hash，对称加密，非对称加密</p>
+<p>hash：传秘钥用非对称加密，传数据用对称加密</p>
+<p>证书是一个验证链，私钥加密，公钥加密。</p>
+<p>对称加密，服务端和客户端们都用同一个秘钥，大家都一样，就相当于此地无银三百两了。所以可以通过协商的方式获取不同的秘钥，服务端和客户端A、B、C的秘钥都不一样。</p>
+<p>非对称加密：特点是私钥加密后的密文，只要是公钥，都可以解密，但是反过来公钥加密后的密文，只有私钥可以解密。私钥只有一个人有，而公钥可以发给所有的人。</p>
+<ol>
+    <li>公钥是开放给所有人的，但私钥是需要保密的，存在于服务端</li>
+    <li>服务器端server向client端（A、B.....）的信息传输是不安全的：因为所有人都可以获取公钥</li>
+    <li>但client端（A、B.....）向server端的信息传输确实安全的：因为私钥只有server端存在</li>
+</ol>
 </body>
 </html>
-
